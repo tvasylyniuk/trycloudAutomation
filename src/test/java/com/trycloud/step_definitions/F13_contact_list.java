@@ -35,6 +35,7 @@ public class F13_contact_list {
         List<WebElement> allContactNames=Driver.getDriver().findElements(By.xpath("//div[@class='vue-recycle-scroller__item-view']"));
         Assert.assertTrue(allContactNames.size()>=2);
 
+
     }
 
 }
