@@ -14,6 +14,14 @@ import java.util.Set;
 
 public class BrowserUtils {
 
+    public static void headerButton(String head){
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.click(Driver.getDriver().findElement(By.xpath("//span[normalize-space(text())='"+head+"']"))).perform();
+
+    }
+
+
     public static void sleep(int second){
         second *=1000;
         try {
