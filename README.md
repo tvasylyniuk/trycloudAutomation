@@ -1,3 +1,4 @@
+
 # TryCloud App
 ![](src/image/TryCloud.png)
 
@@ -63,7 +64,6 @@
 ![bioImage](https://avatars.githubusercontent.com/u/97210649?v=4&s=200)
 [![](https://img.shields.io/badge/gitHub-Gunay13-pink?style=plastic)](https://www.github.com/Gunay13) |
 [![](https://img.shields.io/badge/email-gunay.nur1303@gmail.com-pink?style=plastic)](mailto:gunay.nur1303@gmail.com)
-
 
 
 
