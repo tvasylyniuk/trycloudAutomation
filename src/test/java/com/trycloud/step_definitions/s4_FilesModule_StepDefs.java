@@ -10,7 +10,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class s4_FilesModule_StepDefs {
 
@@ -45,6 +49,10 @@ public class s4_FilesModule_StepDefs {
 
     @Then("verify all the files are selected")
     public void verifyAllTheFilesAreSelected() {
+        List<WebElement> checkbox = new ArrayList<>();
+        for (WebElement each : checkbox) {
+            Assert.assertTrue(each.isSelected());
+        }
         Assert.assertTrue(filesPage.checkBoxes.isSelected());
     }
 
