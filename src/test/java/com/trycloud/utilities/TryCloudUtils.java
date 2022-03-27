@@ -12,11 +12,12 @@ import java.util.List;
 public class TryCloudUtils {
 
     public static Actions actions = new Actions(Driver.getDriver());
-    static HomePage_ahmet homePage = new HomePage_ahmet();
+    public static HomePage_ahmet homePage = new HomePage_ahmet();
 
     public static void headerButton(String head) {
+        head = head.toLowerCase();
 
-        actions.click(Driver.getDriver().findElement(By.xpath("(//span[normalize-space(text())='" + head + "'])[1]"))).perform();
+        actions.click(Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']/li[@data-id='"+head+"']"))).perform();
 
     }
 

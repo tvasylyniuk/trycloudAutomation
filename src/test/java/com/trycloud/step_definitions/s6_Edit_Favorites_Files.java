@@ -6,6 +6,8 @@ import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import com.trycloud.utilities.TryCloudUtils;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -17,12 +19,12 @@ public class s6_Edit_Favorites_Files {
 
     TryCloudLogin tryCloudLogin = new TryCloudLogin();
     HomePage_ahmet homePage = new HomePage_ahmet();
+    String moveFirst;
 
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String headerBtn) {
 
         tryCloudLogin.loginBy();
-        BrowserUtils.sleep(2);
         TryCloudUtils.headerButton(headerBtn);
 
     }
@@ -31,49 +33,40 @@ public class s6_Edit_Favorites_Files {
     public void the_users_click_action_icon_from_any_file_on_the_page_to_remove() {
 
         sideMenuButtons("Favorites");
-        BrowserUtils.sleep(2);
         System.out.println(favoritesList());
+        moveFirst = favoritesList().get(0);
         BrowserUtils.sleep(2);
         sideMenuButtons("All files");
-        Actions actions = new Actions(Driver.getDriver());
-
-        if (favoritesList().size() != 0) {
-            for (WebElement file : homePage.allFilesTableList) {
-                if (file.getText().equals(favoritesList().get(0))) {
-                    actions.contextClick(file).perform();
-                    homePage.firstElementInPopupAction.click();
-                }
-            }
-
-        }
 
     }
 
     @When("user choose the {string} option")
-    public void user_choose_the_option(String string) {
+    public void user_choose_the_option(String popMenuItem) {
 
         Actions actions = new Actions(Driver.getDriver());
-
-        if (favoritesList().size() != 0) {
-            for (WebElement file : homePage.allFilesTableList) {
-                if (file.getText().equals(favoritesList().get(0))) {
-                    actions.contextClick(file).perform();
-                    homePage.firstElementInPopupAction.click();
-                }
+        for (WebElement file : homePage.allFilesTableList) {
+            if (file.getText().equals(moveFirst)) {
+                actions.contextClick(file).pause(2).perform();
+                actions.click(Driver.getDriver().findElement
+                        (By.xpath("(//span[.='" + popMenuItem + "'])[2]"))).perform();
             }
-
         }
     }
 
     @When("user click the {string} sub-module on the left side")
-    public void user_click_the_sub_module_on_the_left_side(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_click_the_sub_module_on_the_left_side(String sideMenuItem) {
+        sideMenuButtons(sideMenuItem);
+
+
     }
 
     @Then("Verify that the file is removed from the Favorites sub-module’s table")
     public void verify_that_the_file_is_removed_from_the_favorites_sub_module_s_table() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertFalse(moveFirst+"item is still in the favorite list",favoritesList().contains(moveFirst));
     }
+
+
+
+
+
 }
