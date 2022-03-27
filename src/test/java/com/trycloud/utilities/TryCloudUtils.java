@@ -4,6 +4,7 @@ package com.trycloud.utilities;
 import com.trycloud.pages.HomePage_ahmet;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class TryCloudUtils {
     public static void headerButton(String head) {
         head = head.toLowerCase();
 
-        actions.click(Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']/li[@data-id='"+head+"']"))).perform();
+        actions.click(Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']/li[@data-id='" + head + "']"))).perform();
 
     }
 
@@ -33,6 +34,19 @@ public class TryCloudUtils {
         homePage.listOfFavTable.forEach(p -> listOfFav.add(p.getText()));
 
         return listOfFav;
+    }
+
+    public static void addMenuOpt(String path) {
+        actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).perform();
+    }
+
+    public static boolean itemCheckInTheList(String itemName){
+        boolean result = false;
+        for (WebElement item : homePage.allFilesTableList) {
+            if(item.getText().equals(itemName))
+             result =true;
+        }
+        return result;
     }
 
 

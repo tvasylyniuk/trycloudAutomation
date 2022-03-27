@@ -11,8 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static com.trycloud.utilities.TryCloudUtils.favoritesList;
-import static com.trycloud.utilities.TryCloudUtils.sideMenuButtons;
+import static com.trycloud.utilities.TryCloudUtils.*;
 
 
 public class s6_Edit_Favorites_Files {
@@ -62,11 +61,32 @@ public class s6_Edit_Favorites_Files {
 
     @Then("Verify that the file is removed from the Favorites sub-module’s table")
     public void verify_that_the_file_is_removed_from_the_favorites_sub_module_s_table() {
-        Assert.assertFalse(moveFirst+"item is still in the favorite list",favoritesList().contains(moveFirst));
+        Assert.assertFalse(moveFirst + "item is still in the favorite list", favoritesList().contains(moveFirst));
     }
 
 
+    @When("the user clicks the add icon on the top")
+    public void theUserClicksTheAddIconOnTheTop() {
+        homePage.newPlusBtn.click();
+        BrowserUtils.sleep(3);
+    }
+
+    @And("user uploads file with the upload file option")
+    public void userUploadsFileWithTheUploadFileOption() {
+
+        String path = "C:\\Users\\oz_ah\\OneDrive\\Pictures\\CHE111.jpg";
+        BrowserUtils.sleep(3);
+
+        addMenuOpt(path);
+        TryCloudUtils.headerButton("Files");
+        BrowserUtils.sleep(3);
+    }
+
+    @Then("Verify the file is displayed on the page")
+    public void verifyTheFileIsDisplayedOnThePage() {
+        String expectedItem = "CHE111";
+        Assert.assertTrue(itemCheckInTheList(expectedItem));
 
 
-
+    }
 }
