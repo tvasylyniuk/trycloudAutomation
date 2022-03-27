@@ -24,4 +24,7 @@ public class TryCloudLogin extends BasePage {
     @FindBy(css = ".info")
     public WebElement infoP;
 
+    @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
+    public WebElement warningMessage;
+
 }
