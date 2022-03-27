@@ -62,6 +62,8 @@ public class HomePage_ahmet {
     @FindBy(xpath = "//table[@class='list-container  has-controls']/tbody/tr/td[2]/a/span/span[1]")
     public List<WebElement> allFilesTableList;
 
+    @FindBy(xpath = "//span[.='Upload file']")
+    public WebElement uploadFileBtn;
 
 
 
