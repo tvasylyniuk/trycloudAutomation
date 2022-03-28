@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class TryCloudLogin extends BasePage {
 
-
     @FindBy(id = "user")
     public WebElement userInput;
 
