@@ -1,10 +1,12 @@
 package com.trycloud.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+import java.util.List;
 
+public class HomePage extends BasePage{
 
 
     @FindBy(css = "#appmenu li[data-id='dashboard'] svg")
@@ -37,5 +39,8 @@ public class HomePage extends BasePage{
     @FindBy(css = "#appmenu li[data-id='deck'] svg")
     public WebElement deck;
 
+    @FindAll(
+            @FindBy (xpath = "//div[@class='vue-recycle-scroller__item-view']"))
+    public List<WebElement> allContactNames;
 
 }
