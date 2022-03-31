@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/trycloud/step_definitions",
-        dryRun = true,
-        tags = "",
+        dryRun = false,
+        tags = "@winByTatiana",
         plugin = {
                 "html:target/cucumber-report.html",
                 "rerun:target/rerun.txt",
