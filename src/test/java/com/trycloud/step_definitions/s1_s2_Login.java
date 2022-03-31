@@ -3,20 +3,22 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.BasePage;
 import com.trycloud.pages.HomePage;
 import com.trycloud.pages.TryCloudLogin;
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.security.Key;
 
 public class s1_s2_Login {
     TryCloudLogin tryCloudLogin = new TryCloudLogin();
-    HomePage homePage = new HomePage();
+    //HomePage homePage = new HomePage();
 
     @Given("user on the login page TryCloud")
     public void user_on_the_login_page() {
@@ -28,23 +30,20 @@ public class s1_s2_Login {
     @When("user enter valid {string} and {string}")
     public void user_enter_valid_and(String username, String password) {
 
-        tryCloudLogin.userInput.sendKeys(username+ Keys.ENTER);
-        tryCloudLogin.passwordInput.sendKeys(password+ Keys.ENTER);
+        tryCloudLogin.userInput.sendKeys(username);
+        tryCloudLogin.passwordInput.sendKeys(password);
     }
 
     @When("user click the login button")
     public void user_click_the_login_button() {
-
         tryCloudLogin.submitFormInput.click();
     }
 
     @Then("verify the user should be at the dashboard page")
     public void verify_the_user_should_be_at_the_dashboard_page() {
 
-        String actual = homePage.dashboard.getText();
-        String excual = "Dashboard";
-        Assert.assertEquals(actual,excual,"user is not in dashboard");
-
+        String actual = Driver.getDriver().getTitle();
+        Assert.assertTrue(actual.contains("Dashboard"));
     }
 
     @When("user enter invalid {string} and {string}")
