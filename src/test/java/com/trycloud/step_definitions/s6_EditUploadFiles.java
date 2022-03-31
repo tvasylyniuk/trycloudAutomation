@@ -3,6 +3,7 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.HomePage_ahmet;
 import com.trycloud.pages.TryCloudLogin;
 import com.trycloud.utilities.BrowserUtils;
+import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
 import com.trycloud.utilities.TryCloudUtils;
 import io.cucumber.java.en.*;
@@ -14,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import static com.trycloud.utilities.TryCloudUtils.*;
 
 
-public class s6_Edit_Favorites_Files {
+public class s6_EditUploadFiles {
 
     TryCloudLogin tryCloudLogin = new TryCloudLogin();
     HomePage_ahmet homePage = new HomePage_ahmet();
@@ -22,6 +23,7 @@ public class s6_Edit_Favorites_Files {
 
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String headerBtn) {
+
 
         tryCloudLogin.loginBy();
         TryCloudUtils.headerButton(headerBtn);
@@ -62,6 +64,7 @@ public class s6_Edit_Favorites_Files {
     @Then("Verify that the file is removed from the Favorites sub-module’s table")
     public void verify_that_the_file_is_removed_from_the_favorites_sub_module_s_table() {
         Assert.assertFalse(moveFirst + "item is still in the favorite list", favoritesList().contains(moveFirst));
+
     }
 
 
@@ -75,7 +78,7 @@ public class s6_Edit_Favorites_Files {
     public void userUploadsFileWithTheUploadFileOption() {
 
         String path = "C:\\Users\\oz_ah\\OneDrive\\Pictures\\CHE111.jpg";
-        BrowserUtils.sleep(3);
+        //BrowserUtils.sleep(3);
 
         addMenuOpt(path);
         TryCloudUtils.headerButton("Files");
@@ -86,7 +89,6 @@ public class s6_Edit_Favorites_Files {
     public void verifyTheFileIsDisplayedOnThePage() {
         String expectedItem = "CHE111";
         Assert.assertTrue(itemCheckInTheList(expectedItem));
-
 
     }
 }

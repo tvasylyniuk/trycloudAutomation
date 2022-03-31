@@ -44,11 +44,11 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
-
-
+        // Driver.getDriver().close();
+        //Driver.closeDriver();
         //BrowserUtils.sleep(5);
-        Driver.closeDriver();
 
+        //
         //System.out.println("====Closing browser using cucumber @After");
         //System.out.println("====Scenario ended/ Take screenshot if failed!");
     }

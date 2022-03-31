@@ -37,14 +37,16 @@ public class TryCloudUtils {
     }
 
     public static void addMenuOpt(String path) {
-        actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).perform();
+        actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).click().perform();
     }
 
     public static boolean itemCheckInTheList(String itemName){
         boolean result = false;
         for (WebElement item : homePage.allFilesTableList) {
-            if(item.getText().equals(itemName))
-             result =true;
+
+            if(item.getText().equals(itemName)){
+                BrowserUtils.sleep(1);
+             result =true;}
         }
         return result;
     }
