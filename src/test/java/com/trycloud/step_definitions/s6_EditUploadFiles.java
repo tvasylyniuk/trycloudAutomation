@@ -9,6 +9,7 @@ import com.trycloud.utilities.TryCloudUtils;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -77,18 +78,20 @@ public class s6_EditUploadFiles {
     @And("user uploads file with the upload file option")
     public void userUploadsFileWithTheUploadFileOption() {
 
-        String path = "C:\\Users\\oz_ah\\OneDrive\\Pictures\\CHE111.jpg";
-        //BrowserUtils.sleep(3);
+
+        String path = "C:\\Users\\oz_ah\\OneDrive\\Pictures\\Assurance.jpg";
 
         addMenuOpt(path);
-        TryCloudUtils.headerButton("Files");
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(5);
+        Driver.getDriver().navigate().refresh();
+
     }
 
     @Then("Verify the file is displayed on the page")
     public void verifyTheFileIsDisplayedOnThePage() {
-        String expectedItem = "CHE111";
+        String expectedItem = "istockphoto-1215248502-612x612";
         Assert.assertTrue(itemCheckInTheList(expectedItem));
-
+        BrowserUtils.sleep(3);
     }
+
 }

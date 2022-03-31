@@ -17,7 +17,7 @@ public class Hooks {
     @Before (order = 1)
     public void setupScenario(){
 
-            Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+           Driver.getDriver().get(ConfigurationReader.getProperty("env"));
 
     }
 
@@ -44,8 +44,8 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
-        // Driver.getDriver().close();
-        //Driver.closeDriver();
+        //Driver.getDriver().close();
+        Driver.closeDriver();
         //BrowserUtils.sleep(5);
 
         //
