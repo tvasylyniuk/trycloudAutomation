@@ -4,9 +4,12 @@ package com.trycloud.utilities;
 import com.trycloud.pages.HomePage_ahmet;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +40,9 @@ public class TryCloudUtils {
     }
 
     public static void addMenuOpt(String path) {
-        actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).click().perform();
+        actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).perform();
+
+
     }
 
     public static boolean itemCheckInTheList(String itemName){
@@ -50,6 +55,10 @@ public class TryCloudUtils {
         }
         return result;
     }
+
+
+
+
 
 
 }

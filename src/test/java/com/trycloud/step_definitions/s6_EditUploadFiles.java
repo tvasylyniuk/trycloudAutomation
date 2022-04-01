@@ -3,7 +3,6 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.HomePage_ahmet;
 import com.trycloud.pages.TryCloudLogin;
 import com.trycloud.utilities.BrowserUtils;
-import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
 import com.trycloud.utilities.TryCloudUtils;
 import io.cucumber.java.en.*;
@@ -11,7 +10,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import static com.trycloud.utilities.TryCloudUtils.*;
 
 
@@ -57,8 +55,6 @@ public class s6_EditUploadFiles {
     @When("user click the {string} sub-module on the left side")
     public void user_click_the_sub_module_on_the_left_side(String sideMenuItem) {
         sideMenuButtons(sideMenuItem);
-
-
     }
 
     @Then("Verify that the file is removed from the Favorites sub-module’s table")
@@ -77,18 +73,26 @@ public class s6_EditUploadFiles {
     @And("user uploads file with the upload file option")
     public void userUploadsFileWithTheUploadFileOption() {
 
-        String path = "C:\\Users\\oz_ah\\OneDrive\\Pictures\\CHE111.jpg";
-        //BrowserUtils.sleep(3);
+        String path = System.getProperty("user.dir") + "src/test/resources/files/TestTest.jpeg";
 
+        BrowserUtils.highlight(homePage.uploadFileBtn);
+        homePage.uploadFileBtn.sendKeys(path);
+        BrowserUtils.waitForPageToLoad(5);
+
+        /*
+//-------------Util method approach-----------------------------------------------------------------------
+
+        BrowserUtils.highlight(homePage.uploadFileBtn);
         addMenuOpt(path);
-        TryCloudUtils.headerButton("Files");
-        BrowserUtils.sleep(3);
+         */
+
     }
 
     @Then("Verify the file is displayed on the page")
     public void verifyTheFileIsDisplayedOnThePage() {
-        String expectedItem = "CHE111";
+        String expectedItem = "TestTest";
         Assert.assertTrue(itemCheckInTheList(expectedItem));
-
+        BrowserUtils.sleep(3);
     }
+
 }
