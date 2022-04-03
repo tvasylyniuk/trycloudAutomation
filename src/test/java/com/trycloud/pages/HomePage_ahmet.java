@@ -62,7 +62,7 @@ public class HomePage_ahmet {
     @FindBy(xpath = "//table[@class='list-container  has-controls']/tbody/tr/td[2]/a/span/span[1]")
     public List<WebElement> allFilesTableList;
 
-    @FindBy(xpath = "//label[@for='file_upload_start']")
+    @FindBy(xpath = "//input[@id='file_upload_start']")
     public WebElement uploadFileBtn;
 
     @FindBy(xpath = "//a[@class='button new']")
