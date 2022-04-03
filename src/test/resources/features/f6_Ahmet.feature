@@ -1,7 +1,7 @@
 Feature: As a user, I should be able to remove files from favorites and upload a file directly
   Story: As a user, I should be able to edit favorites files.
 
-  @wip-a
+  @wip-us6
   Scenario: verify users to remove files to Favorites
 
     When the user clicks the "Files" module
@@ -10,7 +10,7 @@ Feature: As a user, I should be able to remove files from favorites and upload a
     And user click the "Favorites" sub-module on the left side
     Then Verify that the file is removed from the Favorites sub-module’s table
 
-  @wip-b
+  @wip-us6
   Scenario: verify users to upload a file from Files
 
     When the user clicks the "Files" module

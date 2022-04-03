@@ -19,11 +19,14 @@ public class s6_EditUploadFiles {
     HomePage_ahmet homePage = new HomePage_ahmet();
     String moveFirst;
 
+
+
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String headerBtn) {
 
 
         tryCloudLogin.loginBy();
+        BrowserUtils.waitForPageToLoad(5);
         TryCloudUtils.headerButton(headerBtn);
 
     }
@@ -73,18 +76,10 @@ public class s6_EditUploadFiles {
     @And("user uploads file with the upload file option")
     public void userUploadsFileWithTheUploadFileOption() {
 
-        String path = System.getProperty("user.dir") + "src/test/resources/files/TestTest.jpeg";
+        String path = System.getProperty("user.dir") + "/src/test/resources/files/TestTest.jpeg";
 
         BrowserUtils.highlight(homePage.uploadFileBtn);
         homePage.uploadFileBtn.sendKeys(path);
-        BrowserUtils.waitForPageToLoad(5);
-
-        /*
-//-------------Util method approach-----------------------------------------------------------------------
-
-        BrowserUtils.highlight(homePage.uploadFileBtn);
-        addMenuOpt(path);
-         */
 
     }
 
