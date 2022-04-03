@@ -17,7 +17,7 @@ public class Hooks {
     @Before (order = 1)
     public void setupScenario(){
 
-            Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+           Driver.getDriver().get(ConfigurationReader.getProperty("env"));
 
     }
 
@@ -44,11 +44,11 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
-
-
-        //BrowserUtils.sleep(5);
+        //Driver.getDriver().close();
         Driver.closeDriver();
+        //BrowserUtils.sleep(5);
 
+        //
         //System.out.println("====Closing browser using cucumber @After");
         //System.out.println("====Scenario ended/ Take screenshot if failed!");
     }
