@@ -14,7 +14,7 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//tbody//td[@class='selection']")
     public WebElement checkBoxes;
 
-    @FindBy(xpath = "//span[.='Specifications_BMW_i3_(120_Ah)_BMW_i3s_(120_Ah)#280918']")
+    @FindBy(xpath = "(//span[.='Specifications_BMW_i3_(120_Ah)_BMW_i3s_(120_Ah)#280918'])[2]")
     public WebElement bmwFile;
 
     @FindBy(xpath = "//a[@class='menu-option option-details']")
