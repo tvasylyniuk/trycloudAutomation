@@ -1,6 +1,6 @@
 Feature: As a user, I should be able to write comments to files/folders.
 
-  @wip
+  @wipnick
 Scenario: Verify users to write comments to files/folder Given user on the dashboard page
   When user clicks the Files module
   And user click action-icon from any file on the page
