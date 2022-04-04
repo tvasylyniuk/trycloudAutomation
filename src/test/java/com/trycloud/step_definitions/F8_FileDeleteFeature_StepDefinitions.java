@@ -7,6 +7,7 @@ import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 public class F8_FileDeleteFeature_StepDefinitions {
@@ -53,6 +54,8 @@ public class F8_FileDeleteFeature_StepDefinitions {
 
     @Then("Verify the deleted file is displayed on the page")
     public void verify_the_deleted_file_is_displayed_on_the_page() {
-
+        homePage_tatiana.deletedFileOrder.click();
+        homePage_tatiana.deletedFileOrder.click();
+        Assert.assertTrue(homePage_tatiana.fileRow.isDisplayed());
     }
 }
