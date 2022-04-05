@@ -10,6 +10,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.trycloud.utilities.TryCloudUtils.*;
 
 
@@ -86,7 +90,9 @@ public class s6_EditUploadFiles {
     @Then("Verify the file is displayed on the page")
     public void verifyTheFileIsDisplayedOnThePage() {
         String expectedItem = "TestTest";
-        Assert.assertTrue(itemCheckInTheList(expectedItem));
+        List<String> listNames = new ArrayList<>();
+        homePage.allFilesTableList.forEach(p -> listNames.add(p.getText()));
+        Assert.assertTrue(listNames.contains(expectedItem));
         BrowserUtils.sleep(3);
     }
 

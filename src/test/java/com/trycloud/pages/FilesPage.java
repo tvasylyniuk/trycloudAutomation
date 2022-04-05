@@ -37,8 +37,8 @@ public class FilesPage extends HomePage{
     @FindBy(xpath = "(//span[.='Specifications_BMW_i3_(120_Ah)_BMW_i3s_(120_Ah)#280918'])[2]")
     public WebElement bmwFile;
 
-    @FindBy(xpath = "//a[@class='menu-option option-details']")
-    public WebElement detailsOption;
+    //@FindBy(xpath = "//a[@class='menu-option option-details']")
+    //public WebElement detailsOption;
 
     @FindBy(xpath = "//a[@id='commentsTabView']")
     public WebElement commentsOption;
@@ -46,8 +46,8 @@ public class FilesPage extends HomePage{
     @FindBy(xpath = "//div[@class='message']")
     public WebElement messageInputBox;
 
-    @FindBy(xpath = "//input[@class='submit icon-confirm has-tooltip']")
-    public WebElement submitMessageButton;
+   // @FindBy(xpath = "//input[@class='submit icon-confirm has-tooltip']")
+   // public WebElement submitMessageButton;
 
     @FindBy(xpath = "(//div[@class='message'])[2]")
     public WebElement displayedMessage;
