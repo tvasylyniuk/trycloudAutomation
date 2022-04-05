@@ -15,10 +15,11 @@ import java.util.List;
 
 public class TryCloudUtils {
 
-    public static Actions actions = new Actions(Driver.getDriver());
+
     public static HomePage_ahmet homePage = new HomePage_ahmet();
 
     public static void headerButton(String head) {
+        Actions actions = new Actions(Driver.getDriver());
         head = head.toLowerCase();
         String headLocator = "//ul[@id='appmenu']/li[@data-id='" + head + "']";
 
@@ -43,6 +44,7 @@ public class TryCloudUtils {
     }
 
     public static void addMenuOpt(String path) {
+        Actions actions = new Actions(Driver.getDriver());
         BrowserUtils.waitForVisibility(homePage.uploadFileBtn, 5);
         actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).perform();
 
