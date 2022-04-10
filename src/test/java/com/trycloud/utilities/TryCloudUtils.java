@@ -15,13 +15,17 @@ import java.util.List;
 
 public class TryCloudUtils {
 
-    public static Actions actions = new Actions(Driver.getDriver());
+
     public static HomePage_ahmet homePage = new HomePage_ahmet();
 
     public static void headerButton(String head) {
+        Actions actions = new Actions(Driver.getDriver());
         head = head.toLowerCase();
+        String headLocator = "//ul[@id='appmenu']/li[@data-id='" + head + "']";
 
-        actions.click(Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']/li[@data-id='" + head + "']"))).perform();
+        BrowserUtils.waitForVisibility(Driver.getDriver().findElement(By.xpath(headLocator)), 5);
+
+        actions.moveToElement(Driver.getDriver().findElement(By.xpath(headLocator))).click().perform();
 
     }
 
@@ -40,25 +44,20 @@ public class TryCloudUtils {
     }
 
     public static void addMenuOpt(String path) {
+        Actions actions = new Actions(Driver.getDriver());
+        BrowserUtils.waitForVisibility(homePage.uploadFileBtn, 5);
         actions.moveToElement(homePage.uploadFileBtn).sendKeys(path).perform();
 
-
     }
 
-    public static boolean itemCheckInTheList(String itemName){
+    public static boolean itemCheckInTheList(String itemName) {
         boolean result = false;
-        for (WebElement item : homePage.allFilesTableList) {
+        List<String> listNames = new ArrayList<>();
+        homePage.allFilesTableList.forEach(p -> listNames.add(p.getText()));
 
-            if(item.getText().equals(itemName)){
-                BrowserUtils.sleep(1);
-             result =true;}
-        }
-        return result;
+
+        return listNames.contains(itemName);
     }
-
-
-
-
 
 
 }

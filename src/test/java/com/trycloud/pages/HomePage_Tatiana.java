@@ -36,6 +36,9 @@ public class HomePage_Tatiana {
     @FindBy(xpath = "(//a[@class='action action-menu permanent'])[1]")
     public WebElement fileActionBtn;
 
+    @FindBy(xpath = "//tr[@data-id='15078']")
+    public WebElement fileRow;
+
     //delete file dropdown option
     @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']//li[starts-with(@class,' action')]")
     public List<WebElement> deleteFileDropdown;
@@ -45,6 +48,9 @@ public class HomePage_Tatiana {
     public List<WebElement> deletedFiles;
 
     //===============DELETED FILE PAGE ==============
+
+    @FindBy(xpath = "//a[@id='modified']/span[.='Deleted']")
+    public WebElement deletedFileOrder;
 
 
 }

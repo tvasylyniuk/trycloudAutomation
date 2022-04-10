@@ -1,6 +1,6 @@
 Feature: As a user, I should be able to delete a file/folder.
 
-  @winByTatiana
+  @wipByTatiana
   Scenario: Verify user can delete a file/folder
 
     Given user is on the dashboard page

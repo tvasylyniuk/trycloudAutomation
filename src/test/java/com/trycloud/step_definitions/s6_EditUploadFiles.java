@@ -10,6 +10,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.trycloud.utilities.TryCloudUtils.*;
 
 
@@ -19,11 +23,14 @@ public class s6_EditUploadFiles {
     HomePage_ahmet homePage = new HomePage_ahmet();
     String moveFirst;
 
+
+
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String headerBtn) {
 
 
         tryCloudLogin.loginBy();
+        BrowserUtils.waitForPageToLoad(5);
         TryCloudUtils.headerButton(headerBtn);
 
     }
@@ -73,25 +80,19 @@ public class s6_EditUploadFiles {
     @And("user uploads file with the upload file option")
     public void userUploadsFileWithTheUploadFileOption() {
 
-        String path = System.getProperty("user.dir") + "src/test/resources/files/TestTest.jpeg";
+        String path = System.getProperty("user.dir") + "/src/test/resources/files/TestTest.jpeg";
 
         BrowserUtils.highlight(homePage.uploadFileBtn);
         homePage.uploadFileBtn.sendKeys(path);
-        BrowserUtils.waitForPageToLoad(5);
-
-        /*
-//-------------Util method approach-----------------------------------------------------------------------
-
-        BrowserUtils.highlight(homePage.uploadFileBtn);
-        addMenuOpt(path);
-         */
 
     }
 
     @Then("Verify the file is displayed on the page")
     public void verifyTheFileIsDisplayedOnThePage() {
         String expectedItem = "TestTest";
-        Assert.assertTrue(itemCheckInTheList(expectedItem));
+        List<String> listNames = new ArrayList<>();
+        homePage.allFilesTableList.forEach(p -> listNames.add(p.getText()));
+        Assert.assertTrue(listNames.contains(expectedItem));
         BrowserUtils.sleep(3);
     }
 

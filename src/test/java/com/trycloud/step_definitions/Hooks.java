@@ -14,37 +14,38 @@ import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
 
     //import from io.cucumber.java not from junit
-    @Before (order = 1)
-    public void setupScenario(){
+    @Before(order = 1)
+    public void setupScenario() {
 
-           Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
 
     }
 
-   // @Before (value = "@login", order = 2)
-    public void setupScenarioForLogins(){
+    // @Before (value = "@login", order = 2)
+    public void setupScenarioForLogins() {
         System.out.println("====this will only apply to scenarios with @login tag");
     }
 
-   // @Before (value = "@db", order = 0)
-    public void setupForDatabaseScenarios(){
+    // @Before (value = "@db", order = 0)
+    public void setupForDatabaseScenarios() {
         System.out.println("====this will only apply to scenarios with @db tag");
     }
 
 
     @After
-    public void teardownScenario(Scenario scenario){
+    public void teardownScenario(Scenario scenario) {
 
         //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
 
 
-        if (scenario.isFailed()){
+        if (scenario.isFailed()) {
 
-            byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
         //Driver.getDriver().close();
+
         Driver.closeDriver();
         //BrowserUtils.sleep(5);
 
@@ -53,13 +54,13 @@ public class Hooks {
         //System.out.println("====Scenario ended/ Take screenshot if failed!");
     }
 
-  //  @BeforeStep
-    public void setupStep(){
+    //  @BeforeStep
+    public void setupStep() {
         System.out.println("--------> applying setup using @BeforeStep");
     }
 
-   // @AfterStep
-    public void afterStep(){
+    // @AfterStep
+    public void afterStep() {
         System.out.println("--------> applying tearDown using @AfterStep");
     }
 
