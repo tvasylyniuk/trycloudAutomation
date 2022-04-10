@@ -44,5 +44,4 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//li[@class=' action-delete-container']")
     public WebElement delete;
 
-
 }

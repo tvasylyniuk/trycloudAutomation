@@ -1,4 +1,4 @@
-Feature: As a user, I should be able to remove ﬁles from the favorites and upload a ﬁle directly
+  Feature: As a user, I should be able to remove ﬁles from the favorites and upload a ﬁle directly
   Story: As a user, I  be able to manage folders.
 
   @Korkmaz
