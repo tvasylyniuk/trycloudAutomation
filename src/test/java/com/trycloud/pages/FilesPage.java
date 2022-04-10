@@ -33,6 +33,36 @@ public class FilesPage extends HomePage{
     @FindBy(xpath = "//tbody//td[@class='selection']")
     public WebElement checkBoxes;
 
+    @FindBy(xpath = "//a[@class='button new']")
+    public WebElement addIcon;
+
+    @FindBy(xpath = "//span[text()='New folder']")
+    public WebElement newFolderButton;
+
+    @FindBy(id = "view13-input-folder")
+    public WebElement newFolderInput;
+
+    @FindBy(xpath = "(//input[@type='submit'])[2]")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "//span[text()='k-trycloud']")
+    public WebElement newFolderLocation;
+
+    @FindBy(xpath = "//input[@id='file_upload_start']")
+    public WebElement uploadButton;
+
+    @FindBy(xpath = "//*[@id=\"fileList\"]//span[.='k-este']")
+    public WebElement uploadedFile;
+
+    @FindBy(xpath = "//span[.='k-trycloud']/../following-sibling::span//span[@class='icon icon-more']/..")
+    public WebElement threeDotLocator;
+
+    @FindBy(xpath = "//span[text()='Upload file']")
+    public WebElement uploadFile;
+
+    @FindBy(xpath = "//li[@class=' action-delete-container']")
+    public WebElement delete;
+
 
     @FindBy(xpath = "(//span[.='Specifications_BMW_i3_(120_Ah)_BMW_i3s_(120_Ah)#280918'])[2]")
     public WebElement bmwFile;
@@ -51,6 +81,7 @@ public class FilesPage extends HomePage{
 
     @FindBy(xpath = "(//div[@class='message'])[2]")
     public WebElement displayedMessage;
+
 
 
 }
